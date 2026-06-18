@@ -86,3 +86,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - "*.puml"
+  - docs/PLAN.md
+  - docs/THEORY.md
