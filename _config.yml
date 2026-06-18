@@ -7,7 +7,7 @@ url: https://nordgren.github.io
 baseurl: /fusion-ai-harness
 
 # Color scheme: light, dark, or auto (follows system)
-color_scheme: auto
+color_scheme: light
 
 # Logo and favicon
 logo: "/assets/images/fusion-logo.svg"
