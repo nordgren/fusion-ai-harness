@@ -1,0 +1,84 @@
+# Model Pool Configurations
+# All models use OpenRouter free tier (June 2026)
+# 
+# Rate limits (free tier):
+#   - 20 requests/minute
+#   - 50-1000 requests/day (varies by model)
+#
+# To use: python -m src.fusion "Your query" pool_name
+
+pools:
+  reasoning:
+    description: "Deep analysis and complex reasoning tasks"
+    models:
+      - deepseek/deepseek-r1:free           # 671B MoE, frontier reasoning
+      - qwen/qwen3-coder-480b-instruct:free # 480B MoE, 262K context
+      - meta-llama/llama-3.3-70b-instruct:free
+    synthesizer: deepseek/deepseek-r1:free
+    use_cases:
+      - Strategic analysis
+      - Research questions
+      - Complex problem solving
+      - Multi-step reasoning
+
+  general:
+    description: "Balanced quality for most tasks"
+    models:
+      - meta-llama/llama-3.3-70b-instruct:free
+      - google/gemma-2-27b-it:free
+      - deepseek/deepseek-r1:free
+    synthesizer: deepseek/deepseek-r1:free
+    use_cases:
+      - General questions
+      - Summaries
+      - Explanations
+      - Writing assistance
+
+  technical:
+    description: "Code, architecture, and technical documentation"
+    models:
+      - qwen/qwen3-coder-480b-instruct:free # Strong at code
+      - deepseek/deepseek-r1:free           # Technical reasoning
+      - meta-llama/llama-3.3-70b-instruct:free
+    synthesizer: deepseek/deepseek-r1:free
+    use_cases:
+      - Code review
+      - Architecture decisions
+      - Technical documentation
+      - Debugging strategies
+
+  speed:
+    description: "Lower latency for faster responses"
+    models:
+      - google/gemma-2-9b-it:free
+      - meta-llama/llama-3.1-8b-instruct:free
+      - mistralai/mistral-7b-instruct:free
+    synthesizer: meta-llama/llama-3.3-70b-instruct:free
+    use_cases:
+      - Quick answers
+      - Simple queries
+      - Interactive sessions
+    note: "Smaller models = faster but potentially lower quality fusion"
+
+  minimal:
+    description: "Two-model fusion for quick testing"
+    models:
+      - deepseek/deepseek-r1:free
+      - meta-llama/llama-3.3-70b-instruct:free
+    synthesizer: deepseek/deepseek-r1:free
+    use_cases:
+      - Testing the harness
+      - Quick experiments
+      - Rate limit conservation
+
+# Custom pool template
+# Copy and modify for your own combinations
+custom_template:
+  description: "Your custom pool description"
+  models:
+    - provider/model-name:free
+    - provider/another-model:free
+  synthesizer: provider/best-reasoner:free
+  use_cases:
+    - Your use case 1
+    - Your use case 2

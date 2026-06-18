@@ -1,0 +1,22 @@
+# Fusion AI Harness Dependencies
+
+# HTTP client for async API calls
+httpx>=0.27.0
+aiohttp>=3.9.0
+
+# OpenAI-compatible client (works with OpenRouter)
+openai>=1.30.0
+
+# Configuration management
+pyyaml>=6.0
+
+# CLI interface
+click>=8.1.0
+rich>=13.7.0
+
+# Async utilities
+asyncio-throttle>=1.0.0
+
+# Development
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
